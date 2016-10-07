@@ -1,0 +1,16 @@
+defaultTasks 'enableTask'
+
+task disableTask {
+        enabled = false
+        doLast {
+                println "Disable task"
+        }
+}
+
+
+task enableTask (dependsOn: disableTask) {
+	enabled = true
+	doLast{
+		println "Task enable"
+	}
+}

@@ -1,0 +1,12 @@
+defaultTasks 'first', 'second'
+
+task first {
+	description = 'The first tasks'
+	doLast {
+		println "I'm first"
+	}
+}
+
+task second(description:'The second task') << { task ->
+	println "I am second"
+}

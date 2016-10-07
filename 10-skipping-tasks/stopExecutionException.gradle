@@ -1,0 +1,16 @@
+defaultTasks 'second'
+
+def printTaskName = { task ->
+	println "Running ${task.name}"
+}
+
+task first << printTaskName
+
+first.doFirst {
+	def stop = true
+	if (stop) {
+		throw new StopExecutionException() 
+	}
+}
+
+task second (dependsOn: 'first') << printTaskName

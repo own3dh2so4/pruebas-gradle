@@ -1,0 +1,17 @@
+import static java.util.Calendar.*
+
+defaultTasks  'weekend'
+
+task weekend {
+	onlyIf { task ->
+		def now = Calendar.instance
+		def weekDay = now[DAY_OF_WEEK]
+		def weekDayInWeekend = weekDay in [SATURDAY, SUNDAY]
+		return weekDayInWeekend
+	}
+
+	doLast {
+		println "Do long running stuff"
+	}
+
+}

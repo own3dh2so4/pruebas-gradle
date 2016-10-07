@@ -1,0 +1,19 @@
+task first << { task ->
+	println "Run ${task.name}"
+}
+
+task second << { task ->
+	println "Run ${task.name}"
+}
+
+second.dependsOn 'first'
+
+task third << { task ->
+	println "Run ${task.name}"
+}
+
+third.dependsOn = ['second']
+
+task fourth(dependsOn: 'third') << { task ->
+	println "Run ${task.name}"
+}

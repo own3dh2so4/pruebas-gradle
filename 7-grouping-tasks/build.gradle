@@ -1,0 +1,14 @@
+defaultTasks 'second'
+
+def taskGroup = 'base'
+
+task first(
+	description: 'Base task',
+	group: taskGroup) << {
+	
+	println "I'm the first task"
+}
+
+task second(dependsOn: first, group: taskGroup, description: 'Second task') << {
+	println "I am second"
+}

@@ -1,0 +1,7 @@
+defaultTasks 'simple'
+
+task simple << {
+	println "Hello ${message}"
+}
+
+simple.ext.message = 'world'
